@@ -12,7 +12,7 @@ public enum CommandoStatus
 public class Commando
 {
     private string SolderName;
-    private string CodeName { get; set;}
+    public string CodeName { get; private set;}
     public string[] Tools = new[] { "Hammer", "Chisel", "Rope", "Bag", "WaterBottle" };
     public CommandoStatus Status;
 
@@ -35,9 +35,9 @@ public class Commando
         Console.WriteLine(Status);
     }
 
-    public void attack()
+    public virtual void attack()
     {
-        Console.WriteLine($"{SolderName} He attacks.");
+        Console.WriteLine($"{CodeName} He attacks.");
     }
 
     public void SayName(string commanderRank)
