@@ -11,8 +11,8 @@ public enum CommandoStatus
 
 public class Commando
 {
-    public string SolderName;
-    public string CodeName;
+    private string SolderName;
+    private string CodeName { get; set;}
     public string[] Tools = new[] { "Hammer", "Chisel", "Rope", "Bag", "WaterBottle" };
     public CommandoStatus Status;
 
@@ -39,4 +39,21 @@ public class Commando
     {
         Console.WriteLine($"{SolderName} He attacks.");
     }
+
+    public void SayName(string commanderRank)
+    {
+        switch (commanderRank.ToLower())
+        {
+            case "general":
+                Console.WriteLine(SolderName);
+                break;
+            case "colonel":
+                Console.WriteLine(CodeName);
+                break;
+            default:
+                Console.WriteLine("not authorized");
+                break;
+        }
+    }
+    
 }
